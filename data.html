@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resizable and Draggable Layout</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        width: 100%;
+    }
+
+    .upper-components {
+        display: flex;
+        flex: 1;
+    }
+
+    .lower-component {
+        flex: 1;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .component {
+        border: 1px solid #ccc;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .component-content {
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="upper-components">
+        <div class="component" id="component1" style="width: 30%;">
+            <div class="component-content">
+                <h2>Component 1</h2>
+                <p>Content goes here...</p>
+            </div>
+        </div>
+        <div class="component" id="component2" style="width: 70%;">
+            <div class="component-content">
+                <h2>Component 2</h2>
+                <p>Content goes here...</p>
+            </div>
+        </div>
+    </div>
+    <div class="component lower-component" id="component3">
+        <div class="component-content">
+            <h2>Component 3</h2>
+            <p>Content goes here...</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function() {
+        $(".component").resizable({
+            minHeight: 100,
+            handles: 'n, e, s, w' // Allow resizing from all four sides
+        });
+    });
+    
+</script>
+</body>
+</html>
